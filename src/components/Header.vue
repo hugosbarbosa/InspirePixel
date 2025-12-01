@@ -40,3 +40,4 @@ import logo from "../assets/logo.png"
 <style scoped lang="scss">
 
 </style>
+
