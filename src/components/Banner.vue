@@ -8,7 +8,7 @@ import fotografo from "../assets/fotografo.png";
 
     <section class="banner">
 
-        <div>
+        <div class="text">
             <h1>
                 Onde a paisagem vira <span>inspiração</span> .
             </h1>
@@ -40,6 +40,19 @@ import fotografo from "../assets/fotografo.png";
         }
     }
 
+   .text {
+        max-width: 50%;
+    }
+
+    img {
+        margin-right: 2rem;
+        max-width: 482.84px; 
+        height: 398.18px;
+        object-fit: cover;
+    }
+
 }
+
+
 
 </style>
