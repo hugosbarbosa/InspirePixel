@@ -16,14 +16,14 @@ const toggleMenu = () => {
 
     <div class="mobile-controls">
         <a href="#" class="search-icon-mobile"> 
-            <Icon icon="mdi-light:magnify"/>
+            <Icon icon="line-md:search" class="icon-size-control"/>
         </a>
         
         <button class="hamburger-btn" @click="toggleMenu">
             <Icon 
                 :icon="menuAberto ? 'line-md:close' : 'line-md:menu-fold-left'" 
                 :key="menuAberto"
-                class="menu-icon"
+                class="menu-icon icon-size-control"
             />
         </button>
     </div>
@@ -31,7 +31,9 @@ const toggleMenu = () => {
     <nav :class="{ 'active': menuAberto }">
         <ul>
             <li class="desktop-only">
-                <a href="#" class="search-icon"> <Icon icon="mdi-light:magnify"/> </a>
+                <a href="#" class="search-icon"> 
+                    <Icon icon="line-md:search" class="icon-size-control"/> 
+                </a>
             </li>
             
             <li><a href="#">Início</a></li>
@@ -40,7 +42,7 @@ const toggleMenu = () => {
             
             <li>
                 <a href="#" class="conta-link"> 
-                    <Icon icon="mdi-light:account" class="icon-desktop"/> 
+                    <Icon icon="line-md:account" class="icon-desktop icon-size-control"/> 
                     
                     <span class="text-mobile">Conta</span>
                 </a>
@@ -53,6 +55,22 @@ const toggleMenu = () => {
 </template>
 
 <style scoped lang="scss">
+
+/* --- AQUI ESTÁ A CORREÇÃO --- */
+:deep(.icon-size-control) {
+    font-size: 2.2rem;
+    color: #e1306c; /* Adicionei a cor rosa aqui para forçar */
+}
+
+/* Controle da grossura (finura) */
+:deep(.icon-size-control path),
+:deep(.icon-size-control line),
+:deep(.icon-size-control circle),
+:deep(.icon-size-control rect) {
+    stroke-width: 1.2 !important;
+}
+/* --------------------------- */
+
 header {
     display: flex;
     justify-content: space-between;
@@ -72,9 +90,8 @@ header {
     gap: 15px;
 
     .search-icon-mobile {
-        color: #e1306c;
-        font-size: 2rem; 
         display: flex;
+        text-decoration: none; 
     }
 
     .hamburger-btn {
@@ -82,11 +99,6 @@ header {
         border: none;
         cursor: pointer;
         display: flex;
-        
-        .menu-icon {
-            font-size: 2rem;
-            color: #e1306c; 
-        }
     }
 }
 
@@ -110,19 +122,14 @@ nav {
         }
 
         .search-icon {
-            font-size: 2rem; // Ajuste para mdi-light
-            color: #e1306c;
             display: flex;
         }
 
-       
         .conta-link {
             .text-mobile {
                 display: none; 
             }
             .icon-desktop {
-                font-size: 2rem;
-                color: #e1306c;
                 display: block;
             }
         }
